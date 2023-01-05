@@ -5,9 +5,14 @@ Homepage
 {% endblock head_title %}
 
 {% block content %}
-<h1>Welcome to Meme-Hub</h1> 
+<div class="row text-center">
+    <div class="col-12 py-4">
+        <h1>Welcome to Meme-Hub</h1>
+    </div>
+</div>
 
-<div id="posts">
+
+<div class="row" id="posts">
    Loading
 </div>
 
@@ -30,7 +35,7 @@ Homepage
 
     function formatPostElement(post){
 
-        var formattedPost = "<div class='mb-4 post' id='post-" + post.id 
+        var formattedPost = "<div class='mb-2 py-3 col-12 mx-auto col-md-10 border rounded post' id='post-" + post.id 
         + "'><p>" + post.content + 
             "</p><div class='btn-group'>" + LikeBtn(post) +
             "</div></div>"
