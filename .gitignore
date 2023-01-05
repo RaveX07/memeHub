@@ -1,0 +1,6 @@
+meme_hub/settings.py
+db.sqlite3
+meme_hub/__pycache__
+posts/__pycache__
+posts/migrations
+venv
