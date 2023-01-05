@@ -2,10 +2,20 @@ from django.shortcuts import render
 from django.http import Http404, HttpResponse, JsonResponse
 
 from .models import Post
+from .forms import PostForm
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
     return render(request=request, template_name="pages/home.html", context={})
+
+def post_create_view(request, *args, **kwargs):
+    form = PostForm(request.POST or None)
+    if form.is_valid():
+        obj= form.save(commit=False)
+        obj.save()
+        form = PostForm()
+
+    return render(request, 'components/form.html', context={"form": form})
 
 def post_list_view(request, *args, **kwargs):
     qs = Post.objects.all()
